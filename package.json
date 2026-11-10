@@ -1,0 +1,98 @@
+{
+  "name": "water-drinking-reminder",
+  "displayName": "Water Drinking Reminder",
+  "description": "Customizable water drinking reminders for developers",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "waterReminder.start",
+        "title": "Water Reminder: Start"
+      },
+      {
+        "command": "waterReminder.stop",
+        "title": "Water Reminder: Stop"
+      },
+      {
+        "command": "waterReminder.drink",
+        "title": "Water Reminder: I Drank a Glass"
+      },
+      {
+        "command": "waterReminder.snooze",
+        "title": "Water Reminder: Snooze"
+      },
+      {
+        "command": "waterReminder.resetToday",
+        "title": "Water Reminder: Reset Today's Count"
+      },
+      {
+        "command": "waterReminder.showNow",
+        "title": "Water Reminder: Show Reminder Now"
+      }
+    ],
+    "configuration": {
+      "title": "Water Drinking Reminder",
+      "properties": {
+        "waterReminder.interval": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "maximum": 30,
+          "description": "Reminder interval in minutes (1-30)"
+        },
+        "waterReminder.message": {
+          "type": "string",
+          "default": "Time to drink water! Stay hydrated.",
+          "description": "Your custom reminder message"
+        },
+        "waterReminder.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable water reminders"
+        },
+        "waterReminder.animation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable animated status bar emojis"
+        },
+        "waterReminder.dailyGoal": {
+          "type": "number",
+          "default": 8,
+          "minimum": 1,
+          "description": "Daily goal in glasses of water"
+        },
+        "waterReminder.snoozeMinutes": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "description": "Minutes to wait when you choose 'Remind Me Later'"
+        },
+        "waterReminder.style": {
+          "type": "string",
+          "enum": [
+            "desktop",
+            "notification"
+          ],
+          "default": "desktop",
+          "description": "desktop: animated girl walks across your screen (Windows). notification: plain pop-up."
+        },
+        "waterReminder.imageFolder": {
+          "type": "string",
+          "default": "",
+          "description": "Optional folder with your own girl images (walk.gif / talk.gif, or walk_1.png, walk_2.png...). Leave empty to use the extension's assets folder, or the built-in drawing if no images exist."
+        }
+      }
+    }
+  }
+}
